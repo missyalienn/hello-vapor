@@ -45,6 +45,23 @@ drop.post("post")  { request in
         ])
 }
 
+drop.get("people") { request in
+ 
+    return try JSON(node:[
+        
+       "message": "hello people"
+    
+    ])
+    
+}
+
+
+
+
+
+
+
+
 
 drop.run()
 
