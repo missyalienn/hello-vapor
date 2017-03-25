@@ -1,8 +1,11 @@
 import Vapor
+import VaporPostgreSQL
+
 
 
 
 let drop = Droplet()
+
 
 drop.get { request  in
     //return "Hello, Vapor!"
@@ -44,22 +47,6 @@ drop.post("post")  { request in
         "message":"Hello, \(name)"
         ])
 }
-
-drop.get("people") { request in
- 
-    return try JSON(node:[
-        
-       "message": "hello people"
-    
-    ])
-    
-}
-
-
-
-
-
-
 
 
 

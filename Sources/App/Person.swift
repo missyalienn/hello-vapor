@@ -13,13 +13,13 @@ import Vapor
 final class Person: Model {
 
     var id: Node?
-    var personID: String?
     var exists: Bool = false
 
     var name: String
     var favCity: String
     
     init(name: String, favCity: String) {
+        self.id = nil
         self.name = name
         self.favCity = favCity
         
@@ -47,13 +47,17 @@ final class Person: Model {
         try database.create("persons"){ persons in
             persons.id()
             persons.string("name")
-            books.string("favCity")
+            persons.string("favCity")
       
         }
     }
     
+    static func revert(_database: Database) throws {
+        
+        try database.delete("persons")
     
-    
+        
+    }
     
     
  
